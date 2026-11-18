@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yania · Soirée d’anniversaire</title>
+  <meta name="description" content="Go Yania, it's your birthday ! Tu es invité(e) à l’anniversaire de Yania.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body class="bloque">
+
+<!-- ============ 0. ÉCRAN D'OUVERTURE ============ -->
+<div id="rideau" class="rideau">
+  <div class="rideau-contenu">
+    <p class="rideau-tag">GO YANIA, IT’S YOUR BIRTHDAY 🍾</p>
+    <h2 class="rideau-titre">Préparation du club VIP de Yania…</h2>
+
+    <div class="loader-barre">
+      <div id="loader-remplissage"></div>
+    </div>
+    <p id="loader-pct" class="rideau-pct">0 %</p>
+
+    <button id="btn-entrer" type="button" class="btn btn-entrer cache">
+      Entrer dans le club 🥂
+    </button>
+    <p class="rideau-note">(Monte le son pour 50 Cent · In Da Club 🔊)</p>
+  </div>
+</div>
+
+<!-- ============ MUSIQUE : 50 CENT - IN DA CLUB ============ -->
+<!-- Place ton fichier audio dans assets/in-da-club.mp3 -->
+<audio id="musique" src="assets/in-da-club.mp3" loop preload="auto"></audio>
+
+<button id="btn-musique" type="button" class="player-flottant" aria-label="Activer ou couper la musique" title="50 Cent - In Da Club">
+  <span class="disque" id="disque">💿</span>
+  <span class="player-texte" id="player-texte">50 Cent · In Da Club</span>
+</button>
+
+<!-- ============ 1. EN-TÊTE ============ -->
+<header class="hero">
+  <div class="verre-box" aria-hidden="true">
+    <svg class="verre" viewBox="0 0 120 170">
+      <defs>
+        <clipPath id="interieur"><path d="M22 12H98L89 154Q88 160 82 160H38Q32 160 31 154Z"/></clipPath>
+      </defs>
+      <g clip-path="url(#interieur)">
+        <g class="niveau">
+          <rect x="0" y="12" width="120" height="150" fill="#ffb53b"/>
+          <rect x="0" y="12" width="120" height="16" fill="#fff3e0"/>
+        </g>
+      </g>
+      <path d="M22 12H98L89 154Q88 160 82 160H38Q32 160 31 154Z" fill="none" stroke="#fff3e0" stroke-width="4" stroke-linejoin="round"/>
+    </svg>
+    <div class="bulles" id="bulles"></div>
+  </div>
+
+  <p class="surtitre">Go Yania, it’s your birthday ! Convocation pour</p>
+  <h1 class="titre-anime">Yania</h1>
+  <p class="date">Lundi 23 novembre 2026, dès 22 h (jusqu’à perte de mémoire)</p>
+
+  <div id="rebours" data-date="2026-11-23T22:00:00">
+    <div><strong data-u="j">--</strong><span>jours</span></div>
+    <div><strong data-u="h">--</strong><span>heures</span></div>
+    <div><strong data-u="m">--</strong><span>minutes</span></div>
+    <div><strong data-u="s">--</strong><span>secondes</span></div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ 2. INFOS PRATIQUES ============ -->
+  <section id="infos" class="reveler">
+    <h2>Le plan de bataille</h2>
+    <p class="intro">Oui, c’est un lundi. Non, ce n’est pas une raison pour faire ton vieux.</p>
+    <ul class="infos">
+      <li>
+        <strong>Quand</strong>
+        Lundi 23 novembre 2026, dès 22 h. Le mardi matin est officiellement déclaré férié.
+      </li>
+      <li>
+        <strong>Où</strong>
+        <span id="adresse-texte">7 rue de l'armée Patton, 54000 Nancy</span>
+        <div class="actions-adresse">
+          <a href="https://www.google.com/maps/search/?api=1&query=7+rue+de+l'armée+Patton+54000+Nancy" target="_blank" rel="noopener">Voir sur la carte</a>
+          <button id="btn-copier" type="button" class="btn-mini">Copier l'adresse 📋</button>
+        </div>
+      </li>
+      <li>
+        <strong>Dress code</strong>
+        Chic en haut, chaussures de combat aux pieds pour survivre sur la piste.
+      </li>
+      <li>
+        <strong>Droit d’entrée</strong>
+        Ta bonne humeur, ta bouteille préférée, et une excuse en béton pour ton boss mardi matin.
+      </li>
+    </ul>
+
+    <div class="excuse-box">
+      <button id="btn-excuse" type="button" class="btn-sec">Générer une excuse pour mardi matin 🤒</button>
+      <p id="texte-excuse" class="petit">Clique si tu manques d’inspiration pour sécher le boulot ou les cours.</p>
+    </div>
+  </section>
+
+  <!-- ============ 3. PHOTO ET VIDÉOS ============ -->
+  <section id="preuves" class="reveler">
+    <h2>Pièces à conviction</h2>
+    <p class="intro">Dossier à charge. Toute ressemblance avec ce qui va se passer lundi est purement garantie.</p>
+
+    <div class="galerie">
+      <figure class="polaroid polaroid-large">
+        <img src="assets/yania.jpg" alt="Yania souriante, une bouteille à la main" width="1600" height="900" loading="lazy">
+        <figcaption>Pièce n°1 : « You can find me in the club, bottle full of bub ». Yania affirme que c’était juste pour la déco.</figcaption>
+      </figure>
+
+      <figure class="polaroid">
+        <video src="assets/video1.mp4" poster="assets/poster1.jpg" controls playsinline preload="metadata"></video>
+        <figcaption>Pièce n°2 : Début de soirée calme et distingué (14 minutes après l’ouverture).</figcaption>
+      </figure>
+
+      <figure class="polaroid">
+        <video src="assets/video2.mp4" poster="assets/poster2.jpg" controls playsinline preload="metadata"></video>
+        <figcaption>Pièce n°3 : Chorégraphie non homologuée. Les témoins ont tous perdu la vue.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 4. LE MENU ============ -->
+  <section id="menu" class="reveler">
+    <h2>La carte des breuvages</h2>
+    <p class="intro">Tarif unique : une anecdote honteuse ou un dossier photo sur Yania.</p>
+    <dl class="carte">
+      <div><dt>Le Réveil de Yania</dt><dd>Dosé à l’œil nu. Réveille même les morts du mardi matin.</dd></div>
+      <div><dt>Le Mojito de la honte</dt><dd>Débloque automatiquement l’option « karaoké sur du Céline Dion ».</dd></div>
+      <div><dt>Le Shot du courage</dt><dd>Effet secondaire : envoie un message à ton ex ou déclare ta flamme au DJ.</dd></div>
+      <div class="eau"><dt>L’eau du robinet (Cuvée Prestige)</dt><dd>Fortement recommandée entre deux verres pour éviter le mode zombie.</dd></div>
+      <div><dt>« Juste un dernier et je rentre »</dt><dd>La plus grosse arnaque de l’histoire de l’humanité.</dd></div>
+    </dl>
+  </section>
+
+  <!-- ============ 5. COMPTEUR D'AMBIANCE ============ -->
+  <section id="jauge" class="reveler">
+    <h2>Compteur de température</h2>
+    <div class="graduations" aria-hidden="true">
+      <span>0</span><span>20</span><span>40</span><span>60</span><span>80</span><span>100</span><span>∞</span>
+    </div>
+    <div class="barre" role="img" aria-label="Jauge d’ambiance"><div id="remplissage"></div></div>
+    <p class="etat"><span id="etat">Sobre comme un chameau</span> · <span id="pct">0 %</span></p>
+
+    <button id="trinquer" type="button" class="btn">Trinquer à Yania 🥂</button>
+    <p class="petit">Tournées générales offertes : <strong id="compteur">0</strong></p>
+  </section>
+
+  <!-- ============ 6. RÉPONSE ============ -->
+  <section id="reponse" class="reveler">
+    <h2>Verdict final : tu signes ?</h2>
+    <p class="intro">Attention, le bouton « Non » est très susceptible.</p>
+    <div class="choix">
+      <!-- À MODIFIER : remplace 33600000000 par le numéro de Yania -->
+      <a id="oui" class="btn" href="https://wa.me/33600000000?text=Go%20Yania%20it's%20your%20birthday%20!%20Je%20viens%20%C3%A0%20la%20soir%C3%A9e%20!%20%F0%9F%A5%82" target="_blank" rel="noopener">Évidemment que je viens !</a>
+      <button id="non" type="button" class="btn-non">Je ne viens pas</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>L’abus d’alcool est dangereux pour la santé : à consommer avec modération (et beaucoup d’eau).<br>
+    Celui qui conduit ne boit pas, et celui qui dort sur le canapé fait le café le lendemain.</p>
+</footer>
+
+</body>
+</html>
