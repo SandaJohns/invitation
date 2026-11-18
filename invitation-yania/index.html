@@ -33,7 +33,6 @@
 </div>
 
 <!-- ============ MUSIQUE : 50 CENT - IN DA CLUB ============ -->
-<!-- Place ton fichier audio dans assets/in-da-club.mp3 -->
 <audio id="musique" src="assets/in-da-club.mp3" loop preload="auto"></audio>
 
 <button id="btn-musique" type="button" class="player-flottant" aria-label="Activer ou couper la musique" title="50 Cent - In Da Club">
@@ -61,9 +60,9 @@
 
   <p class="surtitre">Go Yania, it’s your birthday ! Convocation pour</p>
   <h1 class="titre-anime">Yania</h1>
-  <p class="date">Lundi 23 novembre 2026, dès 22 h (jusqu’à perte de mémoire)</p>
+  <p class="date">Samedi 21 novembre 2026, dès 22 h (jusqu’à perte de mémoire)</p>
 
-  <div id="rebours" data-date="2026-11-23T22:00:00">
+  <div id="rebours" data-date="2026-11-21T22:00:00">
     <div><strong data-u="j">--</strong><span>jours</span></div>
     <div><strong data-u="h">--</strong><span>heures</span></div>
     <div><strong data-u="m">--</strong><span>minutes</span></div>
@@ -76,11 +75,11 @@
   <!-- ============ 2. INFOS PRATIQUES ============ -->
   <section id="infos" class="reveler">
     <h2>Le plan de bataille</h2>
-    <p class="intro">Oui, c’est un lundi. Non, ce n’est pas une raison pour faire ton vieux.</p>
+    <p class="intro">C’est un samedi soir, donc aucune excuse pour rentrer tôt !</p>
     <ul class="infos">
       <li>
         <strong>Quand</strong>
-        Lundi 23 novembre 2026, dès 22 h. Le mardi matin est officiellement déclaré férié.
+        Samedi 21 novembre 2026, dès 22 h. Le dimanche matin est officiellement annulé.
       </li>
       <li>
         <strong>Où</strong>
@@ -96,20 +95,20 @@
       </li>
       <li>
         <strong>Droit d’entrée</strong>
-        Ta bonne humeur, ta bouteille préférée, et une excuse en béton pour ton boss mardi matin.
+        Ta bonne humeur, ta bouteille préférée, et de quoi tenir jusqu’au brunch du dimanche.
       </li>
     </ul>
 
     <div class="excuse-box">
-      <button id="btn-excuse" type="button" class="btn-sec">Générer une excuse pour mardi matin 🤒</button>
-      <p id="texte-excuse" class="petit">Clique si tu manques d’inspiration pour sécher le boulot ou les cours.</p>
+      <button id="btn-excuse" type="button" class="btn-sec">Générer une excuse pour dimanche matin 🤒</button>
+      <p id="texte-excuse" class="petit">Clique si tu manques d’inspiration pour annuler le repas de famille du dimanche.</p>
     </div>
   </section>
 
   <!-- ============ 3. PHOTO ET VIDÉOS ============ -->
   <section id="preuves" class="reveler">
     <h2>Pièces à conviction</h2>
-    <p class="intro">Dossier à charge. Toute ressemblance avec ce qui va se passer lundi est purement garantie.</p>
+    <p class="intro">Dossier à charge. Toute ressemblance avec ce qui va se passer samedi est purement garantie.</p>
 
     <div class="galerie">
       <figure class="polaroid polaroid-large">
@@ -129,20 +128,35 @@
     </div>
   </section>
 
-  <!-- ============ 4. LE MENU ============ -->
+  <!-- ============ 4. LE MENU + VISION 3H DU MATIN ============ -->
   <section id="menu" class="reveler">
     <h2>La carte des breuvages</h2>
     <p class="intro">Tarif unique : une anecdote honteuse ou un dossier photo sur Yania.</p>
     <dl class="carte">
-      <div><dt>Le Réveil de Yania</dt><dd>Dosé à l’œil nu. Réveille même les morts du mardi matin.</dd></div>
+      <div><dt>Le Réveil de Yania</dt><dd>Dosé à l’œil nu. Réveille même les morts du dimanche midi.</dd></div>
       <div><dt>Le Mojito de la honte</dt><dd>Débloque automatiquement l’option « karaoké sur du Céline Dion ».</dd></div>
       <div><dt>Le Shot du courage</dt><dd>Effet secondaire : envoie un message à ton ex ou déclare ta flamme au DJ.</dd></div>
       <div class="eau"><dt>L’eau du robinet (Cuvée Prestige)</dt><dd>Fortement recommandée entre deux verres pour éviter le mode zombie.</dd></div>
       <div><dt>« Juste un dernier et je rentre »</dt><dd>La plus grosse arnaque de l’histoire de l’humanité.</dd></div>
     </dl>
+
+    <div class="excuse-box">
+      <button id="btn-vision" type="button" class="btn-sec">Tester la vision à 3 h du matin (après 4 shots) 🥴</button>
+      <p id="texte-vision" class="petit">Clique à tes risques et périls pour simuler la fin de soirée.</p>
+    </div>
   </section>
 
-  <!-- ============ 5. COMPTEUR D'AMBIANCE ============ -->
+  <!-- ============ 5. ROUE DU GAGE OBLIGATOIRE ============ -->
+  <section id="gage" class="reveler">
+    <h2>Ta mission secrète du soir</h2>
+    <p class="intro">Chaque invité doit tirer au sort son gage officiel avant samedi. Fais une capture d’écran !</p>
+    <div class="gage-box">
+      <p id="texte-gage" class="gage-resultat">❓ Quel sera ton destin samedi soir ?</p>
+      <button id="btn-gage" type="button" class="btn">Tirer mon gage au sort 🎲</button>
+    </div>
+  </section>
+
+  <!-- ============ 6. COMPTEUR D'AMBIANCE ============ -->
   <section id="jauge" class="reveler">
     <h2>Compteur de température</h2>
     <div class="graduations" aria-hidden="true">
@@ -155,13 +169,12 @@
     <p class="petit">Tournées générales offertes : <strong id="compteur">0</strong></p>
   </section>
 
-  <!-- ============ 6. RÉPONSE ============ -->
+  <!-- ============ 7. RÉPONSE ============ -->
   <section id="reponse" class="reveler">
     <h2>Verdict final : tu signes ?</h2>
     <p class="intro">Attention, le bouton « Non » est très susceptible.</p>
     <div class="choix">
-      <!-- À MODIFIER : remplace 33600000000 par le numéro de Yania -->
-      <a id="oui" class="btn" href="https://wa.me/33600000000?text=Go%20Yania%20it's%20your%20birthday%20!%20Je%20viens%20%C3%A0%20la%20soir%C3%A9e%20!%20%F0%9F%A5%82" target="_blank" rel="noopener">Évidemment que je viens !</a>
+      <a id="oui" class="btn" href="https://wa.me/33744863314?text=Go%20Yania%20it's%20your%20birthday%20!%20Je%20viens%20%C3%A0%20la%20soir%C3%A9e%20!%20%F0%9F%A5%82" target="_blank" rel="noopener">Évidemment que je viens !</a>
       <button id="non" type="button" class="btn-non">Je ne viens pas</button>
     </div>
   </section>

@@ -106,7 +106,7 @@ for (let i = 0; i < 16; i++) {
 }
 
 
-/* ---------- 4. COPIER L'ADRESSE & GÉNÉRATEUR D'EXCUSES ---------- */
+/* ---------- 4. COPIER L'ADRESSE & EXCUSES DIMANCHE MATIN ---------- */
 $("#btn-copier").addEventListener("click", () => {
   const adresse = $("#adresse-texte").textContent;
   navigator.clipboard.writeText(adresse).then(() => {
@@ -117,10 +117,10 @@ $("#btn-copier").addEventListener("click", () => {
 });
 
 const excuses = [
-  "« J’ai mangé un yaourt périmé de 2024, je ne peux pas quitter ma salle de bain. »",
+  "« J’ai mangé un yaourt périmé, je ne peux pas quitter ma salle de bain aujourd’hui. »",
   "« Mon chat a avalé mes clés de voiture, j’attends que la nature fasse son travail. »",
   "« Je suis coincé(e) dans l’ascenseur avec un livreur Uber Eats depuis 6 h du matin. »",
-  "« J’ai une allergie soudaine aux lundis soir prolongés. »",
+  "« J’ai une allergie soudaine aux réveils avant 15 h le dimanche. »",
   "« Mon réveil était réglé sur le fuseau horaire de Tokyo. »",
   "« J’ai aidé une mamie à traverser… jusqu’à Metz. »",
 ];
@@ -134,7 +134,61 @@ $("#btn-excuse").addEventListener("click", () => {
 });
 
 
-/* ---------- 5. JAUGE D’AMBIANCE (MONTE À 110 %) ---------- */
+/* ---------- 5. VISION À 3H DU MATIN (EFFET FLOU + TANGAGE) ---------- */
+$("#btn-vision").addEventListener("click", () => {
+  const btn = $("#btn-vision");
+  const texte = $("#texte-vision");
+  if (document.body.classList.contains("vision-floue")) return;
+
+  document.body.classList.add("vision-floue");
+  btn.disabled = true;
+  texte.textContent = "🥴 Oulah… ça tourne un peu là non ? Bois un verre d'eau !";
+  texte.style.color = "var(--rose)";
+  texte.style.fontWeight = "700";
+
+  setTimeout(() => {
+    document.body.classList.remove("vision-floue");
+    btn.disabled = false;
+    texte.textContent = "Ouf, l'eau du robinet a fait effet ! Prêt(e) pour la suite.";
+    texte.style.color = "#7fd6ff";
+  }, 4000);
+});
+
+
+/* ---------- 6. ROUE DU GAGE OBLIGATOIRE ---------- */
+const gages = [
+  "🧊 Tu dois ramener des glaçons ou un paquet de chips sinon tu restes sur le palier.",
+  "💃 Tu as l’obligation de lancer le premier pas de danse dès que « In Da Club » passe.",
+  "🎤 Tu dois faire un discours de 30 secondes sur pourquoi Yania est la meilleure.",
+  "📸 Tu es désigné(e) photographe officiel(le) des dossiers compromettants jusqu’à 2 h du matin.",
+  "🚫 Interdiction de prononcer le mot « fatigué » avant 4 h du matin (sanction : un verre d'eau cul sec).",
+  "🥂 Tu dois trinquer avec toutes les personnes présentes dans la pièce dans les 10 premières minutes.",
+  "🎶 Tu as le droit de choisir une musique de la playlist (interdiction de mettre du Jul triste).",
+];
+
+$("#btn-gage").addEventListener("click", () => {
+  const btn = $("#btn-gage");
+  const affichage = $("#texte-gage");
+  btn.disabled = true;
+  let tours = 0;
+
+  const roulette = setInterval(() => {
+    affichage.textContent = gages[Math.floor(Math.random() * gages.length)];
+    tours++;
+    if (tours > 12) {
+      clearInterval(roulette);
+      const gageFinal = gages[Math.floor(Math.random() * gages.length)];
+      affichage.textContent = gageFinal;
+      affichage.style.color = "var(--ambre)";
+      btn.textContent = "Gage validé ! (Retirer un autre 🎲)";
+      btn.disabled = false;
+      exploser(12);
+    }
+  }, 80);
+});
+
+
+/* ---------- 7. JAUGE D’AMBIANCE (MONTE À 110 %) ---------- */
 const etats = [
   [0, "Sobre comme un chameau"],
   [20, "« Non mais moi ce soir je reste sage »"],
@@ -170,7 +224,7 @@ new IntersectionObserver((entrees, obs) => {
 }, { threshold: 0.6 }).observe($(".barre"));
 
 
-/* ---------- 6. TRINQUER : PLUIE D'EMOJIS ---------- */
+/* ---------- 8. TRINQUER : PLUIE D'EMOJIS ---------- */
 const EMOJIS = ["🥂", "🍻", "🍹", "🎉", "🎂", "🪩", "🔥", "💃"];
 
 function exploser(n = 16) {
@@ -196,7 +250,7 @@ $("#trinquer").addEventListener("click", () => {
 });
 
 
-/* ---------- 7. LE BOUTON « JE NE VIENS PAS » QUI FUIT ---------- */
+/* ---------- 9. LE BOUTON « JE NE VIENS PAS » QUI FUIT ---------- */
 const non = $("#non");
 const phrases = [
   "Je ne viens pas",
